@@ -1,9 +1,19 @@
+/* login.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Asegura que cubra todo el alto visible */
   background-color: #f0f4f8;
+  width: 100vw;
 }
 
 .stack-container {
@@ -13,7 +23,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 40px;
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* Evita que sea demasiado ancho */
 }
 
 .avatar {

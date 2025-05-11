@@ -47,13 +47,13 @@ const Login = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Flex className="flex-container">
-      <Stack className="stack-container">
+    <div className="flex-container">
+      <div className="stack-container">
         <Avatar className="avatar" />
         <Heading className="heading">Bienvenido</Heading>
         <Box className="form-box">
           <form onSubmit={handleSubmit}>
-            <Stack className="form-container">
+            <div className="form-container">
               <FormControl>
                 <InputGroup className="input-group">
                   <InputLeftElement
@@ -75,7 +75,7 @@ const Login = () => {
                 <InputGroup className="input-group">
                   <InputLeftElement
                     className="input-left"
-                    color="gray.300"
+                    pointerEvents="none"
                     children={<CFaLock color="gray.300" />}
                   />
                   <Input
@@ -115,11 +115,11 @@ const Login = () => {
               >
                 Login
               </Button>
-            </Stack>
+            </div>
           </form>
         </Box>
-      </Stack>
-    </Flex>
+      </div>
+    </div>
   );
 };
 

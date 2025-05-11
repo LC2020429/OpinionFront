@@ -251,7 +251,6 @@ const Register = () => {
               <Button
                 variant="link"
                 onClick={() => setShowMore(!showMore)}
-                color="#3872d1"
                 fontWeight="500"
               >
                 {showMore ? "Ocultar detalles" : "Agregar más detalles"}
@@ -270,7 +269,10 @@ const Register = () => {
         </Box>
 
         <Box className="signup-text">
-          Already have an account? <span className="signup-link">Login</span>
+          Already have an account?{" "}
+          <a href="/auth/login" className="signup-link">
+            Login
+          </a>
         </Box>
       </Stack>
     </Flex>

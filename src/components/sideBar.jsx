@@ -15,6 +15,9 @@ const Sidebar = () => {
         <div className="sidebar-item">
           <Link to="/favoritos">Favoritos</Link>
         </div>
+        <div className="sidebar-item">
+          <Link to="/dashboard">Publicaciones</Link>
+        </div>
       </div>
 
       <div className="sidebar-item-perfil">
