@@ -1,0 +1,22 @@
+.categorias-lista {
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 15px;               
+  padding: 20px;          
+  margin-left: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #45a049;
+}

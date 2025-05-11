@@ -1,36 +1,31 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
-import { getCategories as fetchCategoriasRequest } from "../../services/api.jsx"; 
-export const useCategorias = () => {
-  const [categorias, setCategorias] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+import { getCategories as getCategoriesRequest } from "../../services/api";
 
-  const navigate = useNavigate();
+export const useCategories = () => {
+  const [categories, setCategories] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const getCategories = useCallback(async () => {
+    setIsFetching(true);
+    const categoriesData = await getCategoriesRequest();
+
+    if (categoriesData.error) {
+      toast.error(categoriesData.error || "Error al obtener las categorías");
+      setIsFetching(false);
+      return;
+    }
+
+    setCategories(categoriesData.categories); 
+    setIsFetching(false);
+  }, []);
 
   useEffect(() => {
-    const getCategorias = async () => {
-      setIsLoading(true);
-      const response = await fetchCategoriasRequest();
-      setIsLoading(false);
+    getCategories();
+  }, [getCategories]);
 
-      if (response.error) {
-        const errorMessage =
-          response?.e?.response?.data?.message ||
-          "Error al obtener las categorías";
-        toast.error(errorMessage); 
-        setError(errorMessage);
-      } else {
-        setCategorias(response.data); 
-      }
-    };
-
-    getCategorias();
-  }, []); 
   return {
-    categorias,
-    isLoading,
-    error,
+    categories,
+    isFetching,
   };
 };

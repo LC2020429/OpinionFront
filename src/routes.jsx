@@ -2,11 +2,21 @@ import { Navigate } from "react-router-dom";
 import Login from "../src/components/auth/login";
 import Register from "../src/components/auth/register";
 import Dashboard from "../src/pages/dashboard.jsx";
+import Categorias from "../src/pages/home/categoriaPage.jsx";
+
+const PrivateRoute = ({ element }) => {
+  const userDetails = localStorage.getItem("user");
+
+  if (!userDetails) {
+    return <Navigate to="/auth/login" replace />;
+  }
+  return element;
+};
 
 export const routes = [
   {
     path: "/",
-    element: <Navigate to="/auth/login" replace />, // Redirige al login si entra a la raíz
+    element: <Navigate to="/auth/login" replace />,
   },
   {
     path: "/auth",
@@ -18,10 +28,14 @@ export const routes = [
   },
   {
     path: "/dashboard",
-    element: <Dashboard />,
+    element: <PrivateRoute element={<Dashboard />} />,
   },
   {
-    path: "*",
+    path: "/categoria", // Ruta independiente para Categorias
+    element: <PrivateRoute element={<Categorias />} />, 
+  },
+  {
+    path: "*", 
     element: <Navigate to="/auth/login" replace />,
   },
 ];

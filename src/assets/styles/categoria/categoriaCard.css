@@ -1,0 +1,18 @@
+/* Agrega estos estilos al archivo .css del componente CategoriaCard */
+.tarjeta-categoria {
+  background-color: #ddfff5;  /* Fondo blanco con algo de gris */
+  border: 1px solid #ccc;     /* Borde gris */
+  padding: 20px;              /* Espaciado interno */
+  margin-bottom: 10px;        /* Espaciado entre las tarjetas */
+  border-radius: 5px;         /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombras sutiles */
+}
+
+.tarjeta-categoria h3 {
+  color: #333;                /* Color de texto para el nombre de la categoría */
+}
+
+.tarjeta-categoria p {
+  color: #777;                /* Color gris para el número de vistas */
+}
+

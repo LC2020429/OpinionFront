@@ -1,7 +1,8 @@
 import React from "react";
+import "../../assets/styles/categoria/categoriaCard.css";
 
-const categoriaCard = ({ categoryName, vistasCategory, status }) => {
-  if (!status) return null;
+const CategoriaCard = ({ categoryName, vistasCategory, status }) => {
+  if (!status) return null; 
 
   return (
     <div className="tarjeta-categoria">
@@ -11,4 +12,4 @@ const categoriaCard = ({ categoryName, vistasCategory, status }) => {
   );
 };
 
-export default categoriaCard;
+export default CategoriaCard;
