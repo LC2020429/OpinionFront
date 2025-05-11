@@ -1,0 +1,75 @@
+/* Estilos básicos para el sidebar */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Los elementos del sidebar se alinean en columna */
+  justify-content: flex-start; /* Aseguramos que el contenido esté al principio */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales para los items del sidebar */
+.sidebar-item {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+}
+
+/* Estilo común para los enlaces */
+.sidebar-item a {
+  color: white; /* Color blanco para todos los enlaces */
+  text-decoration: none; /* Eliminar subrayado */
+  font-size: 18px;
+  display: block; /* Hace que el área del enlace sea más grande */
+  padding: 5px 0; /* Espaciado para que el área clickeable sea más cómoda */
+}
+
+.sidebar-item a:hover {
+  color: #1abc9c; /* Color al pasar el mouse */
+}
+
+/* Estilo específico para el perfil */
+.sidebar-item-perfil {
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #34495e; /* Añadimos borde superior similar a los demás elementos */
+  margin-top: auto; /* Empuja el perfil hacia el fondo */
+}
+/* Estilos generales para los items del sidebar */
+.sidebar-item-perfil {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #34495e;
+}
+
+/* Estilo común para los enlaces */
+.sidebar-item-perfil a {
+  color: white; /* Color blanco para todos los enlaces */
+  text-decoration: none; /* Eliminar subrayado */
+  font-size: 18px;
+  display: block; /* Hace que el área del enlace sea más grande */
+  padding: 5px 0; /* Espaciado para que el área clickeable sea más cómoda */
+}
+.sidebar-item-perfil a:hover {
+  color: #1abc9c; /* Color al pasar el mouse */
+}
+
+.content {
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  height: 100vh;
+}
