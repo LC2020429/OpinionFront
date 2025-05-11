@@ -22,6 +22,6 @@ export const routes = [
   },
   {
     path: "*",
-    element: <Navigate to="/auth/login" replace />, // Cualquier ruta desconocida va a login
+    element: <Navigate to="/auth/login" replace />,
   },
 ];

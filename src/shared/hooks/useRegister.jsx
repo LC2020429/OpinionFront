@@ -53,7 +53,7 @@ export const useRegister = () => {
         } else {
           const { token } = loginResponse.data.userDetails;
           localStorage.setItem("token", token);
-          navigate("/");
+          navigate("/dashboard");
         }
       }
     } catch (error) {
