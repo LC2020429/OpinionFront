@@ -1,0 +1,57 @@
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-left: 500px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.text {
+  color: #374151;
+}
+
+.tag {
+  font-size: 0.75rem;
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6b7280;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: 1rem;
+  transition: color 0.2s;
+}
+
+.iconBtn:hover.comment {
+  color: #2563eb;
+}
+
+.iconBtn:hover.heart {
+  color: #dc2626;
+}
+
+.iconBtn:hover.edit {
+  color: #16a34a;
+}
