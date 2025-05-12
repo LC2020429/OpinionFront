@@ -103,3 +103,36 @@
 .card-icons button:active {
   transform: translateY(2px);
 }
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.comment-card {
+  display: flex;
+  align-items: flex-end;
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-avatar {
+  margin-right: 12px;
+}
+
+.comment-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-username {
+  margin: 0;
+  font-weight: bold;
+}
+
+.comment-text {
+  margin: 4px 0 0 0;
+}

@@ -11,14 +11,23 @@ apiClient.interceptors.request.use(
     const userDetails = localStorage.getItem("user");
 
     if (userDetails) {
-      const token = JSON.parse(userDetails).token;
-      config.headers.Authorization = `Bearer ${token}`;
+      try {
+        const parsedUser = JSON.parse(userDetails);
+        const token = parsedUser?.userDetails?.token;
+
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        } else {
+          console.warn("Token no encontrado en userDetails");
+        }
+      } catch (e) {
+        console.error("Error al parsear user del localStorage:", e);
+      }
     }
+
     return config;
   },
-  (e) => {
-    return Promise.reject(e);
-  }
+  (e) => Promise.reject(e)
 );
 
 export const register = async (data) => {
@@ -55,11 +64,13 @@ export const getCategories = async () => {
       e,
     };
   }
-}
+};
 
 export const getPublicaciones = async () => {
   try {
-    const response = await apiClient.get("/publicacion/listPublicacionesPublicas");
+    const response = await apiClient.get(
+      "/publicacion/listPublicacionesPublicas"
+    );
     return response.data;
   } catch (e) {
     return {
@@ -67,4 +78,30 @@ export const getPublicaciones = async () => {
       e,
     };
   }
-}  
+};
+
+export const getComments = async (pid) => {
+  try {
+    const response = await apiClient.get(
+      `/comentarios/getComentsByPublicacion/${pid}`
+    );
+    return response.data;
+  } catch (e) {
+    return {
+      error: true,
+      e,
+    };
+  }
+};
+
+export const addComment = async (data) => {
+  try {
+    const response = await apiClient.post(`/comentarios/addComent`, data);
+    return response.data;
+  } catch (e) {
+    return {
+      error: true,
+      e,
+    };
+  }
+};

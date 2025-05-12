@@ -48,7 +48,7 @@ const PublicacionFilterBar = ({ onFilterChange }) => {
       </div>
 
       <div className="filter-item">
-        <label>Categoría:</label>
+        <label>Cursos:</label>
         <select
           value={selectedCategory}
           onChange={(e) => {
