@@ -56,3 +56,15 @@ export const getCategories = async () => {
     };
   }
 }
+
+export const getPublicaciones = async () => {
+  try {
+    const response = await apiClient.get("/publicacion/listPublicacionesPublicas");
+    return response.data;
+  } catch (e) {
+    return {
+      error: true,
+      e,
+    };
+  }
+}  

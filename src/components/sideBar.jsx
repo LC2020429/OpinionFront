@@ -8,10 +8,6 @@ const Sidebar = () => {
         <div className="sidebar-item">
           <Link to="/categoria">Categorías</Link>
         </div>
-
-        <div className="sidebar-item">
-          <Link to="/cuentas">Cuentas</Link>
-        </div>
         <div className="sidebar-item">
           <Link to="/favoritos">Favoritos</Link>
         </div>

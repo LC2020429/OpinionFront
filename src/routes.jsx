@@ -3,7 +3,7 @@ import Login from "../src/components/auth/login";
 import Register from "../src/components/auth/register";
 import Dashboard from "../src/pages/dashboard.jsx";
 import Categorias from "../src/pages/home/categoriaPage.jsx";
-
+import FavoritosPage from "./pages/home/favoritosPage.jsx";
 const PrivateRoute = ({ element }) => {
   const userDetails = localStorage.getItem("user");
 
@@ -32,10 +32,14 @@ export const routes = [
   },
   {
     path: "/categoria", // Ruta independiente para Categorias
-    element: <PrivateRoute element={<Categorias />} />, 
+    element: <PrivateRoute element={<Categorias />} />,
   },
   {
-    path: "*", 
+    path: "/favoritos",
+    element: <PrivateRoute element={<FavoritosPage />} />,
+  },
+  {
+    path: "*",
     element: <Navigate to="/auth/login" replace />,
   },
 ];
