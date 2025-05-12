@@ -1,7 +1,10 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Search } from "lucide-react";
+import { useCategories } from "../shared/hooks/useCategorias.jsx";
 import "../assets/styles/filter.css";
-const PublicacionFilterBar = ({ categories = [], onFilterChange }) => {
+
+const PublicacionFilterBar = ({ onFilterChange }) => {
+  const { categories, isFetching, error } = useCategories(); 
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortOrder, setSortOrder] = useState("desc");
@@ -13,6 +16,18 @@ const PublicacionFilterBar = ({ categories = [], onFilterChange }) => {
       sortOrder,
     });
   };
+
+  useEffect(() => {
+    handleFilterChange(); 
+  }, [categories, selectedCategory, sortOrder, searchText]);
+
+  if (isFetching) {
+    return <div>Cargando...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="filter-bar">
@@ -42,11 +57,16 @@ const PublicacionFilterBar = ({ categories = [], onFilterChange }) => {
           }}
         >
           <option value="all">Todas</option>
-          {categories.map((cat) => (
-            <option key={cat._id} value={cat.name}>
-              {cat.name}
-            </option>
-          ))}
+          {categories && categories.length > 0 ? (
+            categories.map((cat) => (
+              <option key={cat._id} value={cat._id}>
+                {cat.categoryName || cat.name}{" "}
+                {/* Asegúrate de que estos campos existan */}
+              </option>
+            ))
+          ) : (
+            <option disabled>No hay categorías disponibles</option>
+          )}
         </select>
       </div>
 
